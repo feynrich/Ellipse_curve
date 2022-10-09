@@ -79,7 +79,6 @@ def sum_same(point, a, points):
         x_3 -= F_len
         if x_31 in F:
             x_3 = x_31  
-    print([x_3, y_3])
 
     return [x_3, y_3]
 
@@ -108,15 +107,22 @@ def sum_diff(point2, point1, points):
 
     return [(x_3), (y_3)]
 
-def sum_all_points(point, a, points):
-    P = sum_same(point, a, points)
-    num_el = [0, point, P]
-    count = 2
-    while count != len(points) - 1:
-        P = sum_diff(P, point, points)
-        count += 1
-        num_el.append(P)
-    return num_el
+def sum_all_points(a, points):
+    for i in range(9, len(points)):
+        P = sum_same(points[i], a, points)
+        P_last = 0
+        count = 1
+        num_el = [0, points[i], P]
+        while P_last != P:
+            P_last = P
+            P = sum_diff(P, points[i], points)
+            count += 1
+            num_el.append(P)
+        if count == 11:
+            num_el.pop()
+            return num_el
+        num_el = []
+        
 
 
 def num_el_group(num_el, points):
@@ -128,7 +134,7 @@ def num_el_group(num_el, points):
 
 def user(a, b, F_len):
     points = gen_points(a, b, F_len)
-    num_el = sum_all_points(points[9], a, points)
+    num_el = sum_all_points(a, points)
 
     return num_el_group(num_el, points)
 
