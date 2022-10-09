@@ -118,7 +118,7 @@ def sum_all_points(a, points):
             P = sum_diff(P, points[i], points)
             count += 1
             num_el.append(P)
-        if count == 11:
+        if count == len(points) - 1:
             num_el.pop()
             return num_el
         num_el = []
