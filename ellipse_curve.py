@@ -1,4 +1,3 @@
-import numpy as np
 import math
 
 F_len = int(input("Input group order: "))
@@ -16,7 +15,7 @@ for i in range (-(F_len-1)//2, ((F_len-1)//2)+1):
 
 size_F_group = len(F)
 
-while np.mod((-4*a**3 - 27*b**2), F_len) == 0:
+while (-4*a**3 - 27*b**2)%F_len == 0:
     print("Dude, try other coefficients: ")
 
     a = int(input("Input coefficient a: "))
@@ -48,7 +47,7 @@ def gen_points(a, b, F_len):
     points = [0]
 
     for j in F:
-        y = np.mod(j**3 + a*j + b, F_len)
+        y = (j**3 + a*j + b)%F_len
 
         if int(y) in extra_sqr:
             if y != 0:
@@ -80,7 +79,7 @@ def sum_same(point, a, points):
         x_3 -= F_len
         if x_31 in F:
             x_3 = x_31  
-
+    print([x_3, y_3])
 
     return [x_3, y_3]
 
@@ -129,7 +128,7 @@ def num_el_group(num_el, points):
 
 def user(a, b, F_len):
     points = gen_points(a, b, F_len)
-    num_el = sum_all_points(points[1], a, points)
+    num_el = sum_all_points(points[9], a, points)
 
     return num_el_group(num_el, points)
 
