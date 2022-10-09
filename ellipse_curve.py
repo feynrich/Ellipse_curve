@@ -63,7 +63,7 @@ def sum_same(point, a, points):
     if point[1] != 0:
        x_3 = int(int_x3_y3(chisl, point)**2 - 2*point[0])%F_len
        y_3 = int(int_x3_y3(chisl, point)*(point[0] - x_3) - point[1])%F_len
-   else:
+    else:
        x_3 = point[0]
        y_3 = point[1]
     
