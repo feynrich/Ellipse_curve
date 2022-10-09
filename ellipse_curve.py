@@ -89,7 +89,7 @@ def sum_diff(point2, point1, points):
     if point2[0] - point1[0] != 0:
        x_3 = int(int2_x3_y3(chisl, point1, point2)**2 - point1[0] - point2[0])%F_len
        y_3 = int(int2_x3_y3(chisl, point1, point2)*(point1[0] - x_3) - point1[1])%F_len
-   else:
+    else:
        x_3 = point2[0]
        y_3 = point2[1]
 
