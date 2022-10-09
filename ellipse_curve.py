@@ -60,8 +60,12 @@ def gen_points(a, b, F_len):
 def sum_same(point, a, points):
     chisl = ((3*(point[0]**2) + a))
         
-    x_3 = int(int_x3_y3(chisl, point)**2 - 2*point[0])%F_len
-    y_3 = int(int_x3_y3(chisl, point)*(point[0] - x_3) - point[1])%F_len
+    if point[1] != 0:
+       x_3 = int(int_x3_y3(chisl, point)**2 - 2*point[0])%F_len
+       y_3 = int(int_x3_y3(chisl, point)*(point[0] - x_3) - point[1])%F_len
+   else:
+       x_3 = point[0]
+       y_3 = point[1]
     
     y_31 = y_3
     x_31 = x_3
@@ -82,8 +86,12 @@ def sum_same(point, a, points):
 
 def sum_diff(point2, point1, points):
     chisl = (point2[1] - point1[1])
-    x_3 = int(int2_x3_y3(chisl, point1, point2)**2 - point1[0] - point2[0])%F_len
-    y_3 = int(int2_x3_y3(chisl, point1, point2)*(point1[0] - x_3) - point1[1])%F_len
+    if point2[0] - point1[0] != 0:
+       x_3 = int(int2_x3_y3(chisl, point1, point2)**2 - point1[0] - point2[0])%F_len
+       y_3 = int(int2_x3_y3(chisl, point1, point2)*(point1[0] - x_3) - point1[1])%F_len
+   else:
+       x_3 = point2[0]
+       y_3 = point2[1]
 
     y_31 = y_3
     x_31 = x_3
