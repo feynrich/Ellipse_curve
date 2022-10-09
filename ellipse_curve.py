@@ -108,7 +108,7 @@ def sum_diff(point2, point1, points):
     return [(x_3), (y_3)]
 
 def sum_all_points(a, points):
-    for i in range(9, len(points)):
+    for i in range(1, len(points)):
         P = sum_same(points[i], a, points)
         P_last = 0
         count = 1
