@@ -28,7 +28,7 @@ def int_x3_y3(chisl1, point):
         chisl2 -= F_len
         if (chisl2/(2*point[1])**2)%1 == 0:
             return chisl2/(2*point[1])
-        return chisl1/(2*point[1])
+    return chisl1/(2*point[1])
 
 def int2_x3_y3(chisl1, point1, point2):
     chisl2 = chisl1
